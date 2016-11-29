@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>HTML Clicks</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/HTML5Clicks/css/html5clicks.css">
+        <link rel="stylesheet" type="text/css" href="/HTML5Clicks/css/tabs.css">
+
+        <script type="text/javascript" src="/HTML5Clicks/js/libs/jquery/jquery.js"></script>
+        
+        <script type="text/javascript" src="/HTML5Clicks/config/singularityJSON.js"></script>
+        
+        <script type="text/javascript" src="/HTML5Clicks/js/htmlclicks/bigNumbers.js"></script>
+        <script type="text/javascript" src="/HTML5Clicks/js/htmlclicks/autoclick.js"></script>
+        <script type="text/javascript" src="/HTML5Clicks/js/htmlclicks/theme.js"></script>
+        <script type="text/javascript" src="/HTML5Clicks/js/htmlclicks/html5clicks.js"></script>
+        
+        <script type="text/javascript" src="/HTML5Clicks/js/htmlclicks/tabs.js"></script>
+        
+    </head>
+    <body>
+        <div class="main-container" onclick="javascript:basicClick()">
+            <!-- Left side menu -->
+            <!-- TODO On Development
+            <div class="left-menu">
+                <nav class="html5clicks-sidenav html5clicks-black html5clicks-card-2">
+                  <div class="html5clicks-container">
+                      <h5><a href="javascript:void(0)" onclick="javascript:hideMenu(event, 'left-menu-container')">Menu</a></h5>
+                  </div>
+                  <a href="javascript:void(0)" class="tablink" onclick="openMenu(event, 'upgrades')">Upgrades</a>
+                  <a href="javascript:void(0)" class="tablink" onclick="openMenu(event, 'meta-upgrades')">Meta Upgrades</a>
+                  <a href="javascript:void(0)" class="tablink" onclick="openMenu(event, 'achievements')">Achievements</a>
+                </nav>
+
+                <div id="left-menu-container">
+                  <div id="upgrades" class="html5clicks-container html5clicks-menu html5clicks-animate-left">
+                    <h2>Upgrades</h2>
+                    <div class="menu-group-container">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                  </div>
+
+                  <div id="meta-upgrades" class="html5clicks-container html5clicks-menu html5clicks-animate-left">
+                    <h2>Meta Upgrades</h2>
+                    <div class="menu-group-container">
+                        <p>On Development</p>
+                    </div>
+                  </div>
+
+                  <div id="achievements" class="html5clicks-container html5clicks-menu html5clicks-animate-left">
+                    <h2>Achievements</h2>
+                    <div class="menu-group-container">
+                        <p>On Development</p>
+                    </div>
+                  </div>
+
+                </div>
+            </div>
+            -->
+            <!-- Right side menu -->
+            <div id="autoclickers" class="auto-clikers">
+            </div>
+            <div class="rigth-side-panel">
+                <!-- TODO On Development
+                <button id="buy-multiplier">1x</button>
+                -->
+            </div>
+        </div>
+            <div class="status-bar">
+                <div class="points-lvl1 status-info">
+                    <span class="label" id="lvl1-label"> Total clicks: </span>
+                    <span id="points-lvl1">0</span>
+                    <!-- span class="currency" id="lvl1-currency"> clicks</span -->
+                </div>
+                <!--
+                <div class="points-lvl2 status-info">
+                    <span class="lavel"> Total meta-points</span>
+                    <span id="points-lvl2">0</span>
+                </div>
+                -->
+                <div class="cps-lvl1 status-info">
+                    <span class="label" id="total-cps-label"> Total CPS: </span>
+                    <span id="total-cps">0</span>
+                    <!-- span class="currency" id="lvl1-currency"> clicks</span -->
+                </div>
+                <!--
+                <button class="settings-button status-info">settings</button>
+                -->
+            </div>
+    </body>
+</html>

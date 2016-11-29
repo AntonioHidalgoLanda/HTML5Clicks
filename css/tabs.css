@@ -1,0 +1,90 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20-Nov-2016, 13:06:33
+    Author     : antonio
+*/
+
+
+.html5clicks-menu {
+    display:none;
+    background-color: darkmagenta;
+    z-index: 1;
+}
+
+.html5clicks-sidenav {
+    background-color: #fff;
+    height: auto;
+    overflow: auto;
+    z-index: 2;
+}
+
+.html5clicks-sidenav a {
+    display: block;
+    text-decoration: none !important;
+    transition: background-color 0.3s ease 0s, color 0.15s ease 0s, box-shadow 0.3s ease 0s, opacity 0.3s ease 0s, filter 0.3s ease 0s;
+    padding: 4px 2px 4px 16px;
+}
+
+.html5clicks-sidenav a:hover {
+    background-color: #ccc;
+}
+
+.html5clicks-black {
+    background-color: #000 !important;
+    color: #fff !important;    
+}
+
+.html5clicks-card-2 {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+    
+}
+
+.html5clicks-container::after {
+    clear: both;
+    content: "";
+    display: table;
+}
+.html5clicks-container {
+    padding: 0.01em 16px;
+}
+
+
+
+
+.html5clicks-animate-left {
+    animation: 0.4s ease 0s normal none 1 running animateleft;
+    position: relative;
+}
+
+@keyframes animateleft {
+0% {
+    left: -300px;
+    opacity: 0;
+}
+100% {
+    left: 0;
+    opacity: 1;
+}
+}
+@keyframes animateleft {
+0% {
+    left: -300px;
+    opacity: 0;
+}
+100% {
+    left: 0;
+    opacity: 1;
+}
+}
+
+
+.html5clicks-tab-selected {
+    background-color: #f44336 !important;
+    color: #fff !important;
+}
+
+

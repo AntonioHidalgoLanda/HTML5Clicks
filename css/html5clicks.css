@@ -1,0 +1,125 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20-Nov-2016, 01:27:26
+    Author     : antonio
+*/
+
+
+
+.main-container {
+    background-color: gray;
+    height: 90vh;
+    position:relative; 
+    background-image: url("/HTML5Clicks/img/singularity/the-urban-landscape.jpg");
+    background-position: left bottom;
+    background-size: 100% auto;
+}
+
+.status-bar {
+    width: 100%;
+    bottom: 2px;
+    background-color: darkgray;
+    height: 2em;
+}
+
+.status-bar .status-info {
+    display: inline;
+    margin: auto 1ex;
+    line-height: 2em;
+}
+
+.settings-button {
+    float: right; 
+    line-height: 2ex !important;
+}
+
+.left-menu {
+    max-width: 75ex;
+    width: 75ex;
+    display: inline-flex;
+    height: 100%;
+}
+
+.rigth-side-panel {
+    float: right;
+    bottom: 2px;
+}
+
+.rigth-side-panel button {
+    bottom: 0;
+}
+
+.auto-clikers {
+    float: right;
+    height: 100%;
+    overflow: auto;
+    padding: 1ex;
+}
+
+.auto-clicker {
+    background-color: darkviolet;
+    border: 1pt solid darkmagenta;
+    border-radius: 5px;
+    font-size: x-small;
+    max-width: 30vw;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+div.auto-clicker:hover {
+    background-color: violet;
+}
+
+div.auto-clicker:active {
+    background-color: gray;
+}
+
+div.auto-clicker div {
+    display: inline-block;
+    margin: auto 1ex;
+}
+
+div.auto-clicker h2 {
+    font-size: small;
+}
+
+.autoclicker-cps {
+    font-size: small;
+    float:right;
+}
+
+.auto-clicker img {
+    width: 50px;
+}
+
+.auto-clicker-info {
+  overflow: visible;
+  white-space: normal;
+}
+
+div.auto-clicker:hover .description {
+    visibility: visible;
+}
+
+div.auto-clicker .description {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+.auto-clicker-display{
+    position: absolute;
+}
+
