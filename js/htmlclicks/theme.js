@@ -53,3 +53,42 @@ Theme.prototype.generateAutoClikers = function(autoclikersDivID, autoclickers) {
     return autoclicks;
 };
 
+Theme.prototype.displayAutoclicker = function(autoclicker) {
+    var display = document.getElementById('auto-clicker-display'+autoclicker.id);
+    var buildingLevel = this.displayAutoclickerLevel(autoclicker.getAmount());
+    if (buildingLevel > 0){
+        if (conf.autoClickers[autoclicker.id].display.img !== "") {
+            if (display === undefined || display === null){
+                display = document.createElement("img");
+                display.className = "auto-clicker-display";
+                display.id = "auto-clicker-display" + autoclicker.id;
+                
+                document.getElementsByClassName("main-container")[0]
+                        .appendChild(display);
+            }
+            display.src = conf.autoClickers[autoclicker.id].display.img;
+            display.style.left = conf.autoClickers[autoclicker.id].display.x + "px";
+            display.style.bottom = conf.autoClickers[autoclicker.id].display.y + "px";
+            display.style.width = conf.autoClickers[autoclicker.id].display.width + "px";
+            
+        }
+    }
+    else {
+        if (display !== undefined && display !== null){
+            display.remove();
+        }
+    }
+    return this;
+};      
+
+
+Theme.prototype.displayAutoclickerLevel = function(bigNumber) {
+    bigNumber.rebase();
+    
+    if (bigNumber.value > 0){
+        return bigNumber.power + 1;
+    }
+    else {
+        return 0;
+    }
+};

@@ -5,10 +5,44 @@
  */
 
 function Autoclick () {
-    this.cps = new BigNumbers().init(1);
-    this.lvl = new BigNumbers().init(1);
-    this.amount = new BigNumbers().init(0);
+    this.cps = new BigNumber().init(1);
+    this.lvl = new BigNumber().init(1);
+    this.amount = new BigNumber().init(0);
 }
+
+Autoclick.prototype.copy = function(ac) {
+    if (ac !== undefined) {
+        if ('amount' in ac) {
+            this.amount.copy(ac.amount);
+        }
+        if ('lvl' in ac) {
+            this.lvl.copy(ac.lvl);
+        }
+        if ('cps' in ac) {
+            this.cps.copy(ac.cps);
+        }
+        if ('id' in ac) {
+            this.id = ac.id;
+            if (this.div === undefined || this.div === null){
+                console.log("warning, div autoclicker"+this.id+" not initializated");
+                this.div = document.getElementById("autoclicker"+this.id);
+            }
+        }
+        
+        this.refresh();
+    }
+    return this;
+};
+
+Autoclick.prototype.reset = function() {
+    this.lvl.init(1);
+    this.amount.init(0);
+    var div = document.getElementById('auto-clicker-display'+this.id);
+    if (div !== undefined && div !== null){
+        div.remove();
+    }
+    this.refresh();
+};
 
 Autoclick.prototype.setCps = function(cps) {
     this.cps.init(cps);
@@ -23,15 +57,15 @@ Autoclick.prototype.setAmount = function(amount) {
     return this;
 };
 Autoclick.prototype.increaseCps = function() {
-    this.cps.add(new BigNumbers().init(1));
+    this.cps.add(new BigNumber().init(1));
     return this;
 };
 Autoclick.prototype.increaseLevel = function() {
-    this.lvl.add(new BigNumbers().init(1));
+    this.lvl.add(new BigNumber().init(1));
     return this;
 };
 Autoclick.prototype.increaseAmount = function() {
-    this.amount.add(new BigNumbers().init(1));
+    this.amount.add(new BigNumber().init(1));
     return this;
 };
 
@@ -49,9 +83,9 @@ Autoclick.prototype.getClicks = function() {
 
 // Cost
 Autoclick.prototype.getCost = function() {
-    return new BigNumbers().init(10).times(this.cps).times(
-                new BigNumbers().init(1)
-                .add(this.amount.clone().into(new BigNumbers().init(10)))
+    return new BigNumber().init(10).times(this.cps).times(
+                new BigNumber().init(1)
+                .add(this.amount.clone().into(new BigNumber().init(10)))
             );
     //return Math.round(this.cps * 10 * (1 + this.amount/10));
 };
@@ -143,7 +177,7 @@ Autoclick.prototype.refresh = function(totalCPS) {
         if (totalCPS !== undefined) {
             document.getElementById('autoclicker'+this.id+'-percent')
                     .innerHTML = this.getClicks()
-                    .times(new BigNumbers().init(100)).
+                    .times(new BigNumber().init(100)).
                     into(totalCPS).toString() + "%";
         }
     }

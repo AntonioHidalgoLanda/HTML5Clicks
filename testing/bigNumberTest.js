@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-var n1 = new BigNumbers().init(700);
+var n1 = new BigNumber().init(700);
 console.log(700);
 console.log(n1);
 console.log(n1.toString());
 
-var n2 = new BigNumbers().init(27,5);
+var n2 = new BigNumber().init(27,5);
 console.log("27 *1000^5");
 console.log(n2);
 console.log(n2.toString());
@@ -42,8 +42,8 @@ console.log(n3.toString());
     n1.init(1); // cps
     n2.init(1); //amount
     n3.init(10).times(n1).times(  
-                new BigNumbers().init(1)
-                .add(n2.clone().into(new BigNumbers().init(10))) 
+                new BigNumber().init(1)
+                .add(n2.clone().into(new BigNumber().init(10))) 
             );
 console.log("Cost");
 console.log(n3);

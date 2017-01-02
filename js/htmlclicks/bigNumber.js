@@ -6,32 +6,41 @@
 
 
 
-function BigNumbers () {
+function BigNumber () {
   this.value = 0;
   this.power = 0; // in milliards. 0 = 1; 1 = 1000, 2 = 1.000.000
 }
 
-BigNumbers.prototype.init = function(n,base) {
+BigNumber.prototype.init = function(n,base) {
     this.value = n;
     this.power = (base === undefined)? 0: base; // base || 0; another way to default values
     return this.rebase();
 };
 
-BigNumbers.prototype.clone = function() {
-    var bn = new BigNumbers();
+BigNumber.prototype.copy = function(bn) {
+    if (bn !== undefined && 'value' in bn && 'power' in bn) {
+        this.value = bn.value;
+        this.power = bn.power;
+        this.rebase();
+    }
+    return this;
+};
+
+BigNumber.prototype.clone = function() {
+    var bn = new BigNumber();
     bn.value = this.value;
     bn.power = this.power;
     return bn.rebase();
 };
 
 
-BigNumbers.prototype.not = function() {
+BigNumber.prototype.not = function() {
     this.value = - this.value;
     return this.rebase();
 };
 
 
-BigNumbers.prototype.rebase = function() {
+BigNumber.prototype.rebase = function() {
     if (this.value === 0){
         this.power = 0;
     }
@@ -47,7 +56,7 @@ BigNumbers.prototype.rebase = function() {
     return this;
 };
 
-BigNumbers.prototype.toString = function() {
+BigNumber.prototype.toString = function() {
     var letter = "";
     switch (this.power){
         case 0:
@@ -78,13 +87,13 @@ BigNumbers.prototype.toString = function() {
             break;
         
         default:
-            letter = "M^"+this.power;
+            letter = "10^"+(this.power+3);
     }
     return this.value.toFixed(2) + " " + letter;
 };
 
 
-BigNumbers.prototype.add = function(bn) {
+BigNumber.prototype.add = function(bn) {
     var powDiff = this.power - bn.power;
     
     if (powDiff <= 3 || powDiff >= -3){
@@ -106,7 +115,7 @@ BigNumbers.prototype.add = function(bn) {
 };
 
 
-BigNumbers.prototype.times = function(bn) {
+BigNumber.prototype.times = function(bn) {
     this.value *= bn.value;
     this.power += bn.power;
     
@@ -117,9 +126,9 @@ BigNumbers.prototype.times = function(bn) {
  * division.
  * 
  * @param {type} bn
- * @returns {BigNumbers.prototype}
+ * @returns {BigNumber.prototype}
  */
-BigNumbers.prototype.into = function(bn) {
+BigNumber.prototype.into = function(bn) {
     this.value /= bn.value;
     this.power -= bn.power;
     
@@ -127,7 +136,7 @@ BigNumbers.prototype.into = function(bn) {
 };
 
 // this <= bn
-BigNumbers.prototype.lte = function(bn){
+BigNumber.prototype.lte = function(bn){
     this.rebase();
     bn.rebase();
     
@@ -157,7 +166,7 @@ BigNumbers.prototype.lte = function(bn){
 };
 
 
-BigNumbers.prototype.lt = function(bn){
+BigNumber.prototype.lt = function(bn){
     this.rebase();
     bn.rebase();
     
@@ -188,12 +197,27 @@ BigNumbers.prototype.lt = function(bn){
 
 
 //this > bn
-BigNumbers.prototype.gte = function (bn){
+BigNumber.prototype.gte = function (bn){
   return  bn.lte(this);
 };
 
 //this > bn
-BigNumbers.prototype.gt = function (bn){
+BigNumber.prototype.gt = function (bn){
   return  bn.lt(this);
 };
+
+
+//this > bn
+BigNumber.prototype.metaReduction = function (){
+    var MIN = 3;
+    var bn = new BigNumber();
+    this.rebase();
+    if (this.power >= MIN){
+        bn.value = Math.sqrt(this.value);
+        bn.power = Math.ceil((this.power - MIN)/2);
+    }
+  return  bn;
+};
+
+
 

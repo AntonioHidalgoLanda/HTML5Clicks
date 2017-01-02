@@ -14,11 +14,12 @@ and open the template in the editor.
 
         <script type="text/javascript" src="/HTML5Clicks/js/libs/jquery/jquery.js"></script>
         
-        <script type="text/javascript" src="/HTML5Clicks/config/singularityJSON.js"></script>
+        <script type="text/javascript" src="/HTML5Clicks/config/colonyJSON.js"></script>
         
-        <script type="text/javascript" src="/HTML5Clicks/js/htmlclicks/bigNumbers.js"></script>
+        <script type="text/javascript" src="/HTML5Clicks/js/htmlclicks/bigNumber.js"></script>
         <script type="text/javascript" src="/HTML5Clicks/js/htmlclicks/autoclick.js"></script>
         <script type="text/javascript" src="/HTML5Clicks/js/htmlclicks/theme.js"></script>
+        <script type="text/javascript" src="/HTML5Clicks/js/htmlclicks/environment.js"></script>
         <script type="text/javascript" src="/HTML5Clicks/js/htmlclicks/html5clicks.js"></script>
         
         <script type="text/javascript" src="/HTML5Clicks/js/htmlclicks/tabs.js"></script>
@@ -78,16 +79,25 @@ and open the template in the editor.
                     <span id="points-lvl1">0</span>
                     <!-- span class="currency" id="lvl1-currency"> clicks</span -->
                 </div>
-                <!--
                 <div class="points-lvl2 status-info">
-                    <span class="lavel"> Total meta-points</span>
+                    <span class="label" id="lvl2-label"> Total meta-points</span>
                     <span id="points-lvl2">0</span>
+                    <button onclick="javascript:resetLvl1()" id="btn-reset-lvl1" >reset</button>
                 </div>
-                -->
                 <div class="cps-lvl1 status-info">
                     <span class="label" id="total-cps-label"> Total CPS: </span>
                     <span id="total-cps">0</span>
                     <!-- span class="currency" id="lvl1-currency"> clicks</span -->
+                </div>
+                <div class="settings-btn status-info">
+                    <button onclick="javascript:toggleSettings()" >settings</button>
+                    <div id="setting-menu">
+                        <button onclick="javascript:loadFromImput()" >import</button>
+                        <button onclick="javascript:copyToClipboard()">export</button>
+                        <button onclick="javascript:loadCookie()">load</button>
+                        <button onclick="javascript:saveCookie()">save</button>
+                        <button onclick="javascript:resetCookie()">reset session</button>
+                    </div>
                 </div>
                 <!--
                 <button class="settings-button status-info">settings</button>

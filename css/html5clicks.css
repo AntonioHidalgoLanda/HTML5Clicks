@@ -123,3 +123,22 @@ div.auto-clicker .description {
     position: absolute;
 }
 
+#setting-menu {
+  position: fixed;
+  display: block;
+  left: 50%;
+  top: 30%;
+  transform: translate(-50%);
+  background-color: gray;
+  border-radius: 10px;
+  padding: 5ex;
+}
+
+#setting-menu.hidden{
+  display: none;
+}
+
+#setting-menu button {
+  display: block;
+  margin: 1ex auto;
+}

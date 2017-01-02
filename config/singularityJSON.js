@@ -8,8 +8,12 @@ conf = {
   background: "/HTML5Clicks/img/singularity/space.jpg",
   clickName: "influence",
   clickCoin: "followers",
-  metaPointsName: "Information",
-  metaPointsCoin: "bit",
+  metaPointsName: "R&D",
+  metaPointsCoin: "RoI",
+  resetLvl1Label: "Scrap",
+  resetLvl1Hint: "Scrap for science",
+  casualPointsName: "R&D",
+  casualPintsCoin: "bit",
   autoClickers:[
       {
           id:"0",
